@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(),  Contract.View{
         setContentView(R.layout.activity_main)
 
         dips = findViewById<TextView>(R.id.disp)
+        dips!!.text =" Are changin bruh"
         location = findViewById<AutoCompleteTextView>(R.id.location)
 
         //val location = "Cebu"
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity(),  Contract.View{
         val call = "forecast"
         //val location = location!!.text.toString()
         val text_location = "Cebu"
-        Log.d("This", location!!.text.toString())
+        Log.d("This", "You are inside contructURL"/* location!!.text.toString()*/)
         val url = "http://api.weatherapi.com/v1/$call.json?key=${API_KEY}&q=$text_location"
 
         return url

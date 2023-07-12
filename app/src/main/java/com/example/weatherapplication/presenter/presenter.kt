@@ -26,7 +26,7 @@ class presenter ( private var mainView: Contract.View, private var model: Contra
     }*/
 
     override fun onButtonClick() {
-        Log.d("this", "Temporary")
+        Log.d("this", "Tempooooooooooooooorary")
         val URL = mainView.constructURL()
         model.__init__data(URL)
     }
