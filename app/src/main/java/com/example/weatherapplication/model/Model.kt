@@ -29,18 +29,20 @@ class Model :  Contract.Model{
 
     override fun __init__data(URL:String)/*:Boolean*/{
         Log.d("this", URL)
+        Log.d("this", "We are inside the INIT DATA you sonavabetch")
         //debug().apicall(URL)
         /*return apiCall(URL)*/
         apiCall(URL)
 
         val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
+        Log.d("This", "Something was done here")
         // launching a new coroutine
         GlobalScope.launch {
             val result = quotesApi.getQuotes()
-            if (result != null)
-            // Checking the results
+            if (result != null) {
                 Log.d("this", "I dont understand a shit")
                 Log.d("this", result.body().toString())
+            }
         }
 
 
