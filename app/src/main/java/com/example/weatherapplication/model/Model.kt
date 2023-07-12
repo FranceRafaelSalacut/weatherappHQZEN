@@ -31,7 +31,7 @@ class Model :  Contract.Model{
         Log.d("this", URL)
         //debug().apicall(URL)
         /*return apiCall(URL)*/
-        //apiCall(URL)
+        apiCall(URL)
 
         val quotesApi = RetrofitHelper.getInstance().create(QuotesApi::class.java)
         // launching a new coroutine
@@ -39,6 +39,7 @@ class Model :  Contract.Model{
             val result = quotesApi.getQuotes()
             if (result != null)
             // Checking the results
+                Log.d("this", "I dont understand a shit")
                 Log.d("this", result.body().toString())
         }
 
@@ -46,9 +47,9 @@ class Model :  Contract.Model{
     }
 
 
-    /*fun apiCall(url: String)*//*: Boolean*//*{
+    fun apiCall(url: String): Boolean{
         Log.d("This", "you are in the real world now")
-       *//* var success: Boolean = false*//*
+        var success: Boolean = false
         val client = OkHttpClient()
 
         val request = Request.Builder()
@@ -58,7 +59,7 @@ class Model :  Contract.Model{
         client.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 //Log.d("This", response.body()?.string() ?: "NULL")
-               *//* success = true*//*
+                success = true
                 val responseData = response.body()?.string()?:"NULL"
 
                 val jsonTokener = JSONTokener(responseData)
@@ -70,13 +71,13 @@ class Model :  Contract.Model{
 
 
 
-                *//*val location = Json.decodeFromString<ForecastData.location>(data.getJSONObject("location").toString())
+                val location = Json.decodeFromString<ForecastData.location>(data.getJSONObject("location").toString())
                 Log.d("this", location.toString())
                 val current = Json.decodeFromString<ForecastData.current>(data.getJSONObject("current").toString())
                 Log.d("this", current.toString())
                 val forecast = Json.decodeFromString<ForecastData.forecast>(data.getJSONObject("forecast").toString())
                 //Log.d("this", data.getJSONObject("forecast").getJSONArray("forecastday").toString())
-                Log.d("this", forecast.toString())*//*
+                Log.d("this", forecast.toString())
 
             }
 
@@ -86,6 +87,6 @@ class Model :  Contract.Model{
 
         })
 
-        *//*return success*//*
-    }*/
+        return success
+    }
 }
